@@ -170,13 +170,35 @@ textarea {
   border: none;
   box-sizing: border-box;
 }
+.btn-container {
+  display: flex;
+}
 #donate-btn {
-  margin: 1rem auto !important;
-  width: 40%;
+  margin-top: 2rem;
+  width: 10vw;
   text-align: center;
-  background-color: turquoise;
+  background-color: rgb(14, 164, 149);
   cursor: pointer;
-  border: 2px;
+  border: 2px solid rgb(14, 164, 149);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+#donate-btn:hover {
+  background-color: azure;
+  color: rgb(14, 164, 149);
+  box-sizing: border-box;
+}
+#cancel-btn {
+  margin-top: 2rem;
+  width: 10vw;
+  text-align: center;
+  background-color: rgb(241, 56, 5);
+  cursor: pointer;
+  border: 2px solid rgb(241, 56, 5);
+}
+#cancel-btn:hover {
+  background-color: azure;
+  color: rgb(241, 56, 5);
 }
 
 .qrPage {
@@ -207,4 +229,15 @@ textarea {
   justify-content: center;
   text-align: start;
   align-items: start;
+}
+.unsuccess {
+  background-color: rgb(228, 204, 174);
+  padding: 1px;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: self-start;
+  font-weight: 700;
 }

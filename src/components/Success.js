@@ -1,9 +1,7 @@
 import React from "react";
 
 function Success() {
-  return <div>
-    
-  </div>;
+  return <div>success</div>;
 }
 
 export default Success;

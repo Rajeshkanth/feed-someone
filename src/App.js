@@ -9,6 +9,7 @@ import Donate from "./components/Donate";
 import Home from "./components/Home";
 import QRPage from "./components/QRPage";
 import Success from "./components/Success";
+import Unsuccess from "./components/Unsuccess";
 
 export const store = createContext();
 
@@ -55,6 +56,7 @@ function App() {
           <Route path="/donate" element={<Donate />}></Route>
           <Route path="/qrpage" element={<QRPage />}></Route>
           <Route path="/success" element={<Success />}></Route>
+          <Route path="/unsuccess" element={<Unsuccess />}></Route>
         </Routes>
       </Router>
     </store.Provider>

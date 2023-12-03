@@ -18,7 +18,13 @@ function Donate() {
   } = useContext(store);
   const donate = (e) => {
     e.preventDefault();
-    navigate("/qrpage");
+    navigate("/success");
+  };
+  const cancel = () => {
+    navigate("/unsuccess");
+    setTimeout(() => {
+      navigate("/");
+    }, 3000);
   };
 
   return (
@@ -62,7 +68,15 @@ function Donate() {
             value={address}
             onChange={handleAddress}
           ></textarea>
-          <input type="submit" value="Donate" id="donate-btn" />
+          <div className="btn-container">
+            <input type="submit" value="Donate" id="donate-btn" />
+            <input
+              type="button"
+              value="Cancel"
+              id="cancel-btn"
+              onClick={cancel}
+            />
+          </div>
         </div>
       </form>
     </div>

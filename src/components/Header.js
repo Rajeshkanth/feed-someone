@@ -5,7 +5,7 @@ function Header() {
   const navigate = useNavigate();
 
   const donatePage = () => {
-    navigate("/donate");
+    navigate("/qrpage");
   };
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
