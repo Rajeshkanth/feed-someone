@@ -1,13 +1,210 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.header {
+  background-color: rgb(245, 162, 53);
+  height: 10vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+}
+.header h1 {
+  margin-left: 1rem;
+}
+.header a {
+  margin-right: 2.5rem;
+  text-decoration: none;
+  color: darkblue;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: rgb(225, 222, 221);
+  font-weight: 800;
+}
+
+/* CSS */
+.button-48 {
+  appearance: none;
+  background-color: #49c21d;
+  border-width: 0;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Clarkson, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1em;
+  margin: 0;
+  opacity: 1;
+  outline: 0;
+  padding: 1.5em 2.2em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-rendering: geometricprecision;
+  text-transform: uppercase;
+  transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1),
+    background-color 100ms cubic-bezier(0.694, 0, 0.335, 1),
+    color 100ms cubic-bezier(0.694, 0, 0.335, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.button-48:before {
+  animation: opacityFallbackOut 0.5s step-end forwards;
+  backface-visibility: hidden;
+  background-color: #3db411;
+  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateZ(0);
+  transition: clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+    -webkit-clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: 100%;
+}
+
+.button-48:hover:before {
+  animation: opacityFallbackIn 0s step-start forwards;
+  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+}
+
+.button-48:after {
+  background-color: #49c21d;
+}
+
+.button-48 span {
+  z-index: 1;
+  position: relative;
+}
+.home,
+.about,
+.blog,
+.contact,
+.donate {
+  padding: 1%;
+  box-sizing: border-box;
+  height: 80vh;
+  width: 100vw;
+  background-color: bisque;
+}
+.about {
+  background-color: rgb(140, 78, 198);
+}
+.blog {
+  background-color: rgb(137, 198, 200);
+}
+.contact {
+  background-color: coral;
+}
+.donate {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.inputBox {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.donate form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 50%;
+  margin: 1rem auto;
+}
+
+.donate input,
+textarea {
+  width: 50%;
+  padding: 0.8vh 0.8vw;
+  margin: 0.4rem;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+.donate textarea {
+  width: 98.5%;
+  resize: none;
+  padding: 0.8vh 0.8vw;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+}
+#donate-btn {
+  margin: 1rem auto !important;
+  width: 40%;
+  text-align: center;
+  background-color: turquoise;
+  cursor: pointer;
+  border: 2px;
+}
+
+.qrPage {
+  height: 100vh;
+  background-color: rgb(243, 173, 94);
+  position: fixed;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.qrContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.donation-details {
+  display: flex;
+}
+.dd,
+.ci {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+  align-items: start;
 }
