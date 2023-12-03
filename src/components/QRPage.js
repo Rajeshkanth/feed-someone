@@ -1,8 +1,11 @@
 import React from "react";
 import QRCode from "react-qr-code";
 
+
 function QRPage() {
   const successURL = `https://rajeshkanth.github.io/feed-someone/#/donate`;
+ 
+
   return (
     <>
       <div className="qrPage">

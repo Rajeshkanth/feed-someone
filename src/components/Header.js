@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 function Header() {
   const navigate = useNavigate();
+  const [isClicked, setIsClicked] = useState(false);
 
   const donatePage = () => {
+    // socket.emit("clicked", isClicked);
     navigate("/qrpage");
   };
   const scrollToSection = (id) => {

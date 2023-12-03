@@ -1,9 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { store } from "../App";
+import { io } from "socket.io-client";
+// const socket = io.connect("https://rajeshkanth.github.io/feed-someone#/donate");
+const socket = io("https://rajeshkanth.github.io", {
+  path: "/feed-someone#/donate", // Adjust the path to match your server setup
+});
 
 function Donate() {
   const navigate = useNavigate();
+  const [donateClicked, setDonateClicked] = useState(false);
+
   const {
     name,
     handleName,
@@ -16,8 +23,15 @@ function Donate() {
     address,
     handleAddress,
   } = useContext(store);
+  useEffect(() => {
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
   const donate = (e) => {
     e.preventDefault();
+    socket.emit("donate", donateClicked);
     navigate("/success");
   };
   const cancel = () => {
