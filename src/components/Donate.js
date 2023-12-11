@@ -2,9 +2,6 @@ import React, { useContext, useState, useEffect, memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { store } from "../App";
 
-// const socket = io.connect(" https://4aa6-157-49-80-22.ngrok-free.app");
-// const socket = io.connect("https://qrcode-server.onrender.com");
-
 function Donate() {
   const navigate = useNavigate();
   const [donateClicked, setDonateClicked] = useState(false);
@@ -55,12 +52,7 @@ function Donate() {
           Address: address,
         },
       });
-      socket.on("success", (data) => {
-        const details = data.details;
-        setDonar([...donar, details]);
-        console.log(data.details);
-        navigate("/success");
-      });
+
       setAlert(false);
     } else {
       setAlert(true);
@@ -77,15 +69,24 @@ function Donate() {
     setCancelClicked(!cancelClicked);
 
     socket.emit("cancel", { cancelled: true });
+  };
+
+  useEffect(() => {
     socket.on("failed", () => {
       navigate("/unsuccess");
       setTimeout(() => {
         navigate("/");
       }, 3000);
     });
-  };
-
-  useEffect(() => {}, [cancelClicked]);
+  }, [cancelClicked]);
+  useEffect(() => {
+    socket.on("success", (data) => {
+      const details = data.details;
+      setDonar([...donar, details]);
+      console.log(data.details);
+      navigate("/success");
+    });
+  }, [donateClicked]);
 
   return (
     <div className="donate" id="donate">

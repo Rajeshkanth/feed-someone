@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { store } from "../App";
+import { MdVerified } from "react-icons/md";
 
 function Success() {
   const { donar } = useContext(store);
@@ -17,26 +18,21 @@ function Success() {
       <div className="bill">
         <div className="bill-header">
           <div className="bill-details">
-            <h1>Donation Details</h1>
+            <h1 className="donation-success">
+              {" "}
+              <MdVerified /> {""}Donation success
+            </h1>
+            <h1>Dear {details.Name}</h1>
+
             <p>
-              <strong>Name:</strong>
-              {details.Name}
-            </p>
-            <p>
-              <strong>Email:</strong>
-              {details.Mail}
-            </p>
-            <p>
-              <strong>Mobile:</strong>
-              {details.Mobile}
-            </p>
-            <p>
-              <strong>Amount:</strong>
-              {details.Amount}
-            </p>
-            <p>
-              <strong>Address:</strong>
-              {details.Address}
+              Thank you for your generous donation of rupees {""}
+              <strong>{details.Amount}</strong> to {""}
+              <strong>Feed Someone</strong>. Your support means a lot to us and
+              will directly impact on our mission. Your donation is
+              tax-deductible, and our Tax ID Number is 023874097. This letter
+              serves as an official acknowledgment of your contribution. We are
+              grateful for your kindness and belief in our cause. Together, we
+              are making a difference.
             </p>
           </div>
           <div className="thank-you-message">

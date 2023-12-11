@@ -284,9 +284,17 @@ textarea {
 }
 .thank-you-message {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* justify-content: space-evenly; */
 }
-
+.bill-header .donation-success {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  margin: 0;
+}
 @media all and (max-width: 600px) {
   .header {
     height: 7vh;
@@ -311,11 +319,9 @@ textarea {
   }
   .inputBox input {
     width: 70%;
-    margin-top: 1rem;
   }
   .input-box textarea {
     width: 70%;
-    margin-top: 1rem;
   }
   .btn-container {
     width: 70vw;
@@ -350,6 +356,9 @@ textarea {
   }
   .bill-details h1 {
     font-size: 6vw;
+  }
+  .bill-header {
+    padding: 2rem;
   }
   .thank-you-message {
     display: flex;

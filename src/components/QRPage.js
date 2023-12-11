@@ -4,6 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { store } from "../App";
 
 function QRPage() {
+  const donateURL = "#/donate";
   const navigate = useNavigate();
   const { socket, donar, setDonar } = useContext(store);
 
@@ -39,7 +40,9 @@ function QRPage() {
         <div className="qrContainer">
           <h1>Scan here to donate</h1>
           <QRCode
-            value={"https://rajeshkanth.github.io/feed-someone/#/donate"}
+            value={
+              "https://3e34-2409-408d-3e08-73ed-293d-5182-3a86-1e10.ngrok-free.app/#/donate"
+            }
           />
         </div>
         <div className="donation-details">
