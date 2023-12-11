@@ -6,7 +6,6 @@ function Header() {
   const [isClicked, setIsClicked] = useState(false);
 
   const donatePage = () => {
-    // socket.emit("clicked", isClicked);
     navigate("/qrpage");
   };
   const scrollToSection = (id) => {

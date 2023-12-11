@@ -1,15 +1,12 @@
-import { createContext, useState } from "react";
-import {
-  HashRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-} from "react-router-dom";
+import React, { createContext, useState, useEffect } from "react";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+
 import Donate from "./components/Donate";
 import Home from "./components/Home";
 import QRPage from "./components/QRPage";
 import Success from "./components/Success";
 import Unsuccess from "./components/Unsuccess";
+import { io } from "socket.io-client";
 
 export const store = createContext();
 
@@ -19,6 +16,9 @@ function App() {
   const [mobile, setMobile] = useState("");
   const [address, setAddress] = useState("");
   const [amount, setAmount] = useState("");
+  const [donar, setDonar] = useState([]);
+  const socket = io.connect("https://qrcode-server.onrender.com");
+
   const handleName = (e) => {
     setName(e.target.value);
   };
@@ -39,15 +39,23 @@ function App() {
     <store.Provider
       value={{
         name,
+        setName,
         handleName,
         mail,
+        setMail,
         handleMail,
         mobile,
+        setMobile,
         handleMobile,
         address,
+        setAddress,
         handleAddress,
         amount,
+        setAmount,
         handleAmount,
+        donar,
+        setDonar,
+        socket,
       }}
     >
       <Router>

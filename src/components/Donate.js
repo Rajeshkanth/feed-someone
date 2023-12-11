@@ -1,45 +1,91 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { store } from "../App";
-import { io } from "socket.io-client";
-// const socket = io.connect("https://rajeshkanth.github.io/feed-someone#/donate");
-const socket = io("https://rajeshkanth.github.io", {
-  path: "/feed-someone#/donate", // Adjust the path to match your server setup
-});
+
+// const socket = io.connect(" https://4aa6-157-49-80-22.ngrok-free.app");
+// const socket = io.connect("https://qrcode-server.onrender.com");
 
 function Donate() {
   const navigate = useNavigate();
   const [donateClicked, setDonateClicked] = useState(false);
+  const [cancelClicked, setCancelClicked] = useState(false);
+  const [alert, setAlert] = useState(false);
+  const [gotData, setGotData] = useState([]);
 
   const {
     name,
+    setName,
     handleName,
     mail,
+    setMail,
     handleMail,
     handleAmount,
     amount,
+    setAmount,
     mobile,
+    setMobile,
     handleMobile,
     address,
+    setAddress,
     handleAddress,
+    donar,
+    setDonar,
+    socket,
   } = useContext(store);
-  useEffect(() => {
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
 
   const donate = (e) => {
     e.preventDefault();
-    socket.emit("donate", donateClicked);
-    navigate("/success");
+    setDonateClicked(!donateClicked);
+    if (name && mail && amount && mobile && address) {
+      // const details = {
+      //   Name: name,
+      //   Mail: mail,
+      //   Amount: amount,
+      //   Mobile: mobile,
+      //   Address: address,
+      // };
+
+      socket.emit("donateDone", {
+        donated: true,
+        details: {
+          Name: name,
+          Mail: mail,
+          Amount: amount,
+          Mobile: mobile,
+          Address: address,
+        },
+      });
+      socket.on("success", (data) => {
+        const details = data.details;
+        setDonar([...donar, details]);
+        console.log(data.details);
+        navigate("/success");
+      });
+      setAlert(false);
+    } else {
+      setAlert(true);
+    }
+    setName("");
+    setMail("");
+    setMobile("");
+    setAmount("");
+    setAddress("");
   };
-  const cancel = () => {
-    navigate("/unsuccess");
-    setTimeout(() => {
-      navigate("/");
-    }, 3000);
+
+  const cancel = (e) => {
+    e.preventDefault();
+    setCancelClicked(!cancelClicked);
+
+    socket.emit("cancel", { cancelled: true });
+    socket.on("failed", () => {
+      navigate("/unsuccess");
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    });
   };
+
+  useEffect(() => {}, [cancelClicked]);
 
   return (
     <div className="donate" id="donate">
@@ -51,12 +97,14 @@ function Donate() {
             placeholder="Enter Your Name"
             value={name}
             onChange={handleName}
+            required
           />
           <input
             type="mail"
             value={mail}
             onChange={handleMail}
             placeholder="Enter Your Mail "
+            required
           />
         </div>
         <div className="inputBox">
@@ -65,12 +113,14 @@ function Donate() {
             placeholder="Enter Your Mobile Number"
             value={mobile}
             onChange={handleMobile}
+            required
           />
           <input
             type="number"
             placeholder="Enter Amount to Donate"
             value={amount}
             onChange={handleAmount}
+            required
           />
         </div>
 
@@ -81,7 +131,10 @@ function Donate() {
             placeholder="Enter Your Address"
             value={address}
             onChange={handleAddress}
+            required
           ></textarea>
+
+          {alert ? <p>Fill all the values..</p> : null}
           <div className="btn-container">
             <input type="submit" value="Donate" id="donate-btn" />
             <input
@@ -97,4 +150,4 @@ function Donate() {
   );
 }
 
-export default Donate;
+export default memo(Donate);
