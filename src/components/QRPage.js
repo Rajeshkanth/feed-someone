@@ -40,7 +40,7 @@ function QRPage() {
         <div className="qrContainer">
           <h1>Scan here to donate.</h1>
           <QRCode
-            value={`https://dd39-2409-408d-3e08-73ed-8196-7078-fecb-1785.ngrok-free.app/${successURL}`}
+            value={` https://2505-2409-408d-3e08-73ed-c1e8-3cc1-ccc6-195a.ngrok-free.app/${successURL}`}
           />
         </div>
         <div className="donation-details">
@@ -67,8 +67,6 @@ function QRPage() {
             </p>
           </div>
         </div>
-
-        <p>Thank you for your support and generosity!</p>
       </div>
     </>
   );

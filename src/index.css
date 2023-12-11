@@ -13,7 +13,7 @@ code {
     monospace;
 }
 .header {
-  background-color: #ffc107;
+  background-color: #3ab3b1;
   height: 10vh;
   width: 100vw;
   display: flex;
@@ -218,8 +218,8 @@ textarea {
 
 .qrPage {
   height: 100vh;
-  background-color: rgb(243, 173, 94);
-  position: fixed;
+  background-color: rgb(223, 227, 234);
+  /* position: fixed; */
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -293,5 +293,24 @@ textarea {
   #cancel-btn {
     width: 40%;
     margin: 0.4rem auto;
+  }
+  .qrPage {
+    height: auto;
+    padding: 5rem 2%;
+    box-sizing: border-box;
+  }
+  .donation-details {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+  .dd,
+  .ci {
+    width: 90vw;
+  }
+  .dd p,
+  .ci p {
+    text-align: justify;
+    margin-left: 0.4rem;
   }
 }
