@@ -20,23 +20,23 @@ function Success() {
             <h1>Donation Details</h1>
             <p>
               <strong>Name:</strong>
-              {/* {details.Name} */}
+              {details.Name}
             </p>
             <p>
               <strong>Email:</strong>
-              {/* {details.Mail} */}
+              {details.Mail}
             </p>
             <p>
               <strong>Mobile:</strong>
-              {/* {details.Mobile} */}
+              {details.Mobile}
             </p>
             <p>
               <strong>Amount:</strong>
-              {/* {details.Amount} */}
+              {details.Amount}
             </p>
             <p>
               <strong>Address:</strong>
-              {/* {details.Address} */}
+              {details.Address}
             </p>
           </div>
           <div className="thank-you-message">
