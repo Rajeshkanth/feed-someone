@@ -257,14 +257,15 @@ textarea {
   font-weight: 700;
 }
 .bill {
-  height: 90vh;
-  position: fixed;
+  height: 100vh;
+
   width: 100vw;
 }
 
 .bill-header {
-  height: 90%;
+  height: 100%;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   background-color: #80e8cc;
   padding: 5rem;

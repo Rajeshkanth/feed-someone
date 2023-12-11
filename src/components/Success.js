@@ -8,23 +8,16 @@ function Success() {
 
   return (
     <>
+      <div className="header">
+        <h1>Feed Someone</h1>
+        <nav>
+          <Link to={"/"}>Home</Link>
+        </nav>
+      </div>
       <div className="bill">
-        <div className="header">
-          <h1>Feed Someone</h1>
-          <nav>
-            <Link to={"/"}>Home</Link>
-            <Link to={"/qrpage"} className="button-48">
-              <span className="text"> Donate</span>{" "}
-            </Link>
-          </nav>
-        </div>
-
         <div className="bill-header">
-          <div>
-            <h1>Donation Details</h1>
-          </div>
-
           <div className="bill-details">
+            <h1>Donation Details</h1>
             <p>
               <strong>Name:</strong>
               {/* {details.Name} */}
@@ -32,6 +25,10 @@ function Success() {
             <p>
               <strong>Email:</strong>
               {/* {details.Mail} */}
+            </p>
+            <p>
+              <strong>Mobile:</strong>
+              {/* {details.Mobile} */}
             </p>
             <p>
               <strong>Amount:</strong>
