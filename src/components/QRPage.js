@@ -38,7 +38,7 @@ function QRPage() {
         </div>
         <p>Thank you for considering a donation to support our cause !</p>
         <div className="qrContainer">
-          <h1>Scan here to donate.</h1>
+          <h1>Scan here to donate</h1>
           <QRCode
             value={` https://2505-2409-408d-3e08-73ed-c1e8-3cc1-ccc6-195a.ngrok-free.app/${successURL}`}
           />

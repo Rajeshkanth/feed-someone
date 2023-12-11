@@ -19,10 +19,18 @@ function Header() {
       <div className="header">
         <h1>Feed Someone</h1>
         <nav>
-          <Link onClick={() => scrollToSection("home")}>Home</Link>
-          <Link onClick={() => scrollToSection("about")}>About</Link>
-          <Link onClick={() => scrollToSection("blog")}>Blog</Link>
-          <Link onClick={() => scrollToSection("contact")}>Contact</Link>
+          <Link className="nav" onClick={() => scrollToSection("home")}>
+            Home
+          </Link>
+          <Link className="nav" onClick={() => scrollToSection("about")}>
+            About
+          </Link>
+          <Link className="nav" onClick={() => scrollToSection("blog")}>
+            Blog
+          </Link>
+          <Link className="nav" onClick={() => scrollToSection("contact")}>
+            Contact
+          </Link>
           <a className="button-48" onClick={donatePage}>
             <span className="text"> Donate</span>{" "}
           </a>

@@ -141,8 +141,11 @@ a:hover {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
+  padding-top: 4rem;
+  box-sizing: border-box;
   align-items: center;
+  position: fixed;
 }
 .input-box {
   display: flex;
@@ -233,6 +236,7 @@ textarea {
   justify-content: center;
   align-items: center;
 }
+
 .donation-details {
   display: flex;
 }
@@ -258,21 +262,40 @@ textarea {
 }
 .bill {
   height: 100vh;
-
   width: 100vw;
+}
+.bill-details {
+  width: auto;
 }
 
 .bill-header {
   height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: column;
   background-color: #80e8cc;
   padding: 5rem;
   box-sizing: border-box;
 }
+.thank-you-message {
+  display: flex;
+  justify-content: space-evenly;
+}
 
 @media all and (max-width: 600px) {
+  .header {
+    height: 7vh;
+  }
+  .header h1 {
+    font-size: 18px;
+  }
+  .qrPage p {
+    font-size: 14px;
+    margin: 0 auto;
+  }
+  .nav {
+    display: none;
+  }
   .donate form {
     width: 90vw;
   }
@@ -283,9 +306,11 @@ textarea {
   }
   .inputBox input {
     width: 70%;
+    margin-top: 1rem;
   }
   .input-box textarea {
     width: 70%;
+    margin-top: 1rem;
   }
   .btn-container {
     width: 70vw;
@@ -305,6 +330,10 @@ textarea {
     height: auto;
     width: 100%;
   }
+  #donate-btn,
+  #cancel-btn {
+    margin-top: 4rem;
+  }
   .dd,
   .ci {
     width: 90vw;
@@ -313,5 +342,15 @@ textarea {
   .ci p {
     text-align: justify;
     margin-left: 0.4rem;
+  }
+  .bill-details h1 {
+    font-size: 6vw;
+  }
+  .thank-you-message {
+    display: flex;
+    flex-direction: column;
+  }
+  .thank-you-message p {
+    font-size: 3vw;
   }
 }
