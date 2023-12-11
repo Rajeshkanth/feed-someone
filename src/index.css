@@ -253,12 +253,17 @@ textarea {
   background-color: rgb(228, 204, 174);
   padding: 1px;
   position: fixed;
+  padding: 2rem 0;
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: self-start;
   font-weight: 700;
+}
+.error {
+  position: fixed;
+  margin: 0 auto;
 }
 .bill {
   height: 100vh;
