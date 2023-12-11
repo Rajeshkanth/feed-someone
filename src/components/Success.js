@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { store } from "../App";
 import { MdVerified } from "react-icons/md";
 
 function Success() {
   const { donar } = useContext(store);
-  const [details] = donar;
-
+  const lastDetails = donar[donar.length - 1];
+  console.log(donar);
   return (
     <>
       <div className="header">
@@ -18,15 +18,17 @@ function Success() {
       <div className="bill">
         <div className="bill-header">
           <div className="bill-details">
-            <h1 className="donation-success">
+            <h1 className="donation-success verified">
               {" "}
-              <MdVerified /> {""}Donation success
+              Donation success {""}{" "}
+              <MdVerified className="verified verified-logo" />
             </h1>
-            <h1>Dear {details.Name}</h1>
+
+            <h1>Dear {lastDetails.Name}</h1>
 
             <p>
               Thank you for your generous donation of rupees {""}
-              <strong>{details.Amount}</strong> to {""}
+              <strong>{lastDetails.Amount}</strong> to {""}
               <strong>Feed Someone</strong>. Your support means a lot to us and
               will directly impact on our mission. Your donation is
               tax-deductible, and our Tax ID Number is 023874097. This letter

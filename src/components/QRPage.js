@@ -12,6 +12,7 @@ function QRPage() {
     const handleSuccess = (data) => {
       const { details } = data;
       setDonar((prevDonar) => [...prevDonar, details]);
+      console.log(donar);
       navigate("/success");
     };
 
@@ -40,15 +41,13 @@ function QRPage() {
         <div className="qrContainer">
           <h1>Scan here to donate</h1>
           <QRCode
-            value={
-              "https://3e34-2409-408d-3e08-73ed-293d-5182-3a86-1e10.ngrok-free.app/#/donate"
-            }
+            value={"https://rajeshkanth.github.io/feed-someone/#/donate"}
           />
         </div>
         <div className="donation-details">
           <div className="dd">
             {" "}
-            <h2>Donation Details:</h2>
+            <h2>Tax Details:</h2>
             <p>
               Your contribution is tax-deductible to the extent allowed by law.{" "}
               <strong>Feed Someone </strong>

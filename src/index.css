@@ -21,6 +21,7 @@ code {
   justify-content: space-around;
   position: fixed;
   top: 0;
+  z-index: 3;
 }
 .header h1 {
   margin-left: 1rem;
@@ -36,7 +37,10 @@ a:hover {
   color: rgb(225, 222, 221);
   font-weight: 800;
 }
-
+.image1 {
+  width: 100%;
+  height: fit-content;
+}
 /* CSS */
 .button-48 {
   appearance: none;
@@ -120,18 +124,33 @@ a:hover {
   padding: 9rem 3%;
   box-sizing: border-box;
   height: 90vh;
+  background-image: url(./components/images/larm-rmah-AEaTUnvneik-unsplash.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.home-image {
-  height: 55vh;
-  width: 45vw;
-  border-radius: 5px;
+.outlined-text {
+  font-size: 1000%;
+  font-weight: bold;
+  color: wheat;
+  -webkit-text-stroke: 4px #141313;
+  -webkit-text-fill-color: transparent;
 }
 
 .about {
   background-color: rgb(140, 78, 198);
+  display: flex;
+  height: auto;
+}
+.float,
+.about-right {
+  width: 45%;
 }
 .blog {
+  display: flex;
+  display: flex;
+  overflow: hidden;
   background-color: rgb(137, 198, 200);
 }
 .contact {
@@ -223,6 +242,8 @@ textarea {
   height: 100vh;
   background-color: rgb(223, 227, 234);
   /* position: fixed; */
+  padding: 5% 0;
+  box-sizing: border-box;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -295,7 +316,40 @@ textarea {
   display: flex;
   margin: 0;
 }
-@media all and (max-width: 600px) {
+.blog1 {
+  width: 100vw;
+  flex: 0 0 auto; /* Ensures each div has equal width */
+  animation: slide 5s infinite ease-in-out; /* Adjust animation duration and other properties */
+  border: 2px solid;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.verified {
+  opacity: 0;
+  animation: visible 3s ease-in-out 1;
+}
+.verified-logo {
+  color: #3db411;
+}
+@keyframes visible {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@media all and (max-width: 750px) {
+  .outlined-text {
+    font-size: 500%;
+  }
   .header {
     height: 7vh;
   }
